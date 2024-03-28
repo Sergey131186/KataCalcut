@@ -100,7 +100,7 @@ func CheckInput(x, plus, y string) {
 				case "/":
 					fmt.Println(Division(num1, num2))
 				default:
-					fmt.Println("Выдача паники, тк не соответствует математической операции")
+					panic("Выдача паники, тк не соответствует математической операции")
 				}
 			} else if x == roman[i] && y == roman[j] {
 				num1 := RomanToInt(x)
@@ -112,7 +112,7 @@ func CheckInput(x, plus, y string) {
 				case "-":
 					rom := Minus(num1, num2)
 					if rom < 1 {
-						fmt.Print("Выдача паники, тк в римской системе нет отрицательных чисел и нуля")
+						panic("Выдача паники, тк в римской системе нет отрицательных чисел и нуля")
 					}
 					fmt.Println(IntToRoman(rom))
 				case "*":
@@ -122,11 +122,11 @@ func CheckInput(x, plus, y string) {
 					rom := Division(num1, num2)
 					fmt.Println(IntToRoman(rom))
 				default:
-					fmt.Println("Выдача паники, тк не соответствует математической операции")
+					panic("Выдача паники, тк не соответствует математической операции")
 				}
 			}
 			if (x == roman[i] && y == inted[j]) || (x == inted[i] && y == roman[j]) {
-				fmt.Println("Выдача паники, тк разные типы счисления")
+				panic("Выдача паники, тк разные типы счисления")
 			}
 		}
 	}
@@ -140,7 +140,7 @@ func main() {
 	line = sc.Text()
 	arr := strings.Split(line, " ")
 	if len(arr) != 3 {
-		fmt.Println("Выдача паники, тк математическая операция должна состоять из двух элементов")
+		panic("Выдача паники, тк математическая операция должна состоять из двух элементов")
 		return
 	}
 	x, plus, y = arr[0], arr[1], arr[2]
@@ -148,10 +148,10 @@ func main() {
 	x2 := RomanToInt(x)
 	y2 := RomanToInt(y)
 	if x1 > 10 || y1 > 10 || x1 < 0 || y1 < 0 {
-		fmt.Println("Выдача паники, тк: числа находятся в диапозоне от 1 до 10")
+		panic("Выдача паники, тк: числа находятся в диапозоне от 1 до 10")
 	}
 	if x2 > 10 || y2 > 10 || x2 < 0 || y2 < 0 {
-		fmt.Println("Выдача паники, тк числа находятся в диапозоне от 1 до 10")
+		panic("Выдача паники, тк числа находятся в диапозоне от 1 до 10")
 	}
 	CheckInput(x, plus, y)
 }
